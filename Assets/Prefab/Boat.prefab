@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 934802326063132472}
   - component: {fileID: 1999054068971638789}
-  - component: {fileID: 4173486515630089947}
-  - component: {fileID: 7577398969139831420}
+  - component: {fileID: 7373181010818318762}
+  - component: {fileID: 7081227973904946542}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -47,32 +47,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031a20eee49ec9740aa352d784ecdbfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 4173486515630089947}
-  characterName: 
---- !u!195 &4173486515630089947
-NavMeshAgent:
+  moveSpeed: 5
+  rotationSpeed: 2.5
+  characterName: Biggus
+  rb: {fileID: 7373181010818318762}
+--- !u!54 &7373181010818318762
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6606952519855257241}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 3
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!65 &7577398969139831420
-BoxCollider:
+  serializedVersion: 4
+  m_Mass: 50
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &7081227973904946542
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,9 +96,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 6}
-  m_Center: {x: 0, y: 0.62, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 6.11
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.93, z: 0}
 --- !u!1001 &6532795164642028644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,15 +111,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0001183711
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25985152
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00004914403
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalRotation.w
