@@ -1,5 +1,59 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2291955786618867479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1716512537718919979}
+  - component: {fileID: 2660666709432955552}
+  m_Layer: 0
+  m_Name: BoatCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1716512537718919979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291955786618867479}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6711383699035638671}
+  m_Father: {fileID: 934802326063132472}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2660666709432955552
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291955786618867479}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 6.4}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &6606952519855257241
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +65,6 @@ GameObject:
   - component: {fileID: 934802326063132472}
   - component: {fileID: 1999054068971638789}
   - component: {fileID: 7373181010818318762}
-  - component: {fileID: 7081227973904946542}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -32,7 +85,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6711383699035638671}
+  - {fileID: 1716512537718919979}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1999054068971638789
@@ -47,10 +100,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031a20eee49ec9740aa352d784ecdbfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rotationSpeed: 2.5
-  characterName: Biggus
   rb: {fileID: 7373181010818318762}
+  characterName: Biggus
+  moveSpeed: 150
+  rotationSpeed: 2.5
+  decelerationRate: 5
+  boatVolume: 5.88
+  isMoving: 0
+  inWater: 0
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!54 &7373181010818318762
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -76,66 +136,43 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
---- !u!136 &7081227973904946542
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6606952519855257241}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 6.11
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.93, z: 0}
 --- !u!1001 &6532795164642028644
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 934802326063132472}
+    m_TransformParent: {fileID: 1716512537718919979}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7072401
+      value: 0.70724267
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000066535205
+      value: 0.00020978897
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.70697343
+      value: 0.70697093
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00020885533
+      value: 0.00006180874
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -143,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -89.978
+      value: 89.978
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb94b5261d33c14b83050593185344b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

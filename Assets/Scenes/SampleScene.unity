@@ -541,7 +541,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &1404018967
 GameObject:
@@ -892,7 +892,7 @@ Transform:
   m_GameObject: {fileID: 1702525509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -49.1, z: 0}
+  m_LocalPosition: {x: 0, y: -50, z: 0}
   m_LocalScale: {x: 202.73, y: 100, z: 212.77}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1036,13 +1036,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 868603376459817945, guid: 1c2a6665f6a99594a8f1b15d3d329eee, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 934802326063132472, guid: 1c2a6665f6a99594a8f1b15d3d329eee, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 934802326063132472, guid: 1c2a6665f6a99594a8f1b15d3d329eee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.72
       objectReference: {fileID: 0}
     - target: {fileID: 934802326063132472, guid: 1c2a6665f6a99594a8f1b15d3d329eee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1077,32 +1081,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1999054068971638789, guid: 1c2a6665f6a99594a8f1b15d3d329eee, type: 3}
-      propertyPath: moveSpeed
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1999054068971638789, guid: 1c2a6665f6a99594a8f1b15d3d329eee, type: 3}
-      propertyPath: buoyancyForce
-      value: 30000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1999054068971638789, guid: 1c2a6665f6a99594a8f1b15d3d329eee, type: 3}
-      propertyPath: decelerationRate
+      propertyPath: boatVolume
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1999054068971638789, guid: 1c2a6665f6a99594a8f1b15d3d329eee, type: 3}
-      propertyPath: waterLayer.m_Bits
-      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6606952519855257241, guid: 1c2a6665f6a99594a8f1b15d3d329eee, type: 3}
       propertyPath: m_Name
       value: Boat1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373181010818318762, guid: 1c2a6665f6a99594a8f1b15d3d329eee, type: 3}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373181010818318762, guid: 1c2a6665f6a99594a8f1b15d3d329eee, type: 3}
-      propertyPath: m_Mass
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

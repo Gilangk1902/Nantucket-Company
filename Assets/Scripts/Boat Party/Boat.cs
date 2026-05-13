@@ -7,17 +7,26 @@ using UnityEngine.EventSystems;
 
 public class Boat : MonoBehaviour
 {
+    [Header("Required Attributes")]
     private string id;
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private string characterName;
+
+    [Header("Movement Stats")]
+    private Vector3 targetPosition;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 10f;
-    [SerializeField] private float buoyancyForce;
     [SerializeField] private float decelerationRate;
-    [SerializeField] private string characterName;
-    
+
+    [Header("Water Physics")]
+    private float fluidDensity = 1000;
+    [SerializeField] private float boatVolume;
+    private float gravity =  9.8f;
+
+    [Header("States")]
     [SerializeField] private bool isMoving;
     [SerializeField] private bool inWater;
-    [SerializeField] private Rigidbody rb;
-    private Vector3 targetPosition;
+
 
     private void Awake()
     {
@@ -32,16 +41,23 @@ public class Boat : MonoBehaviour
     {
         return this.characterName;
     }
+    private float CountBuoyancy()
+    {
+        
+        float depth = 0f - transform.position.y;
+        return fluidDensity * boatVolume * gravity * depth;
+    }
 
     private void FixedUpdate()
     {
-
+        float buoyancy = CountBuoyancy();
+        Debug.Log(buoyancy);
         if (!isMoving)
         {
             //rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, decelerationRate * Time.fixedDeltaTime);
             if (inWater)
             {
-                rb.AddForce(Vector3.up * buoyancyForce * Time.fixedDeltaTime, ForceMode.Force);
+                rb.AddForce(Vector3.up * buoyancy * Time.fixedDeltaTime, ForceMode.Force);
                 rb.drag = 3;
             }
             else
@@ -53,7 +69,7 @@ public class Boat : MonoBehaviour
         {
             if (inWater)
             {
-                rb.AddForce(Vector3.up * buoyancyForce * Time.fixedDeltaTime, ForceMode.Force);
+                rb.AddForce(Vector3.up * buoyancy * Time.fixedDeltaTime, ForceMode.Force);
                 rb.drag = 3;
             }
             else
@@ -88,11 +104,6 @@ public class Boat : MonoBehaviour
                 // Move forward
                 Vector3 moveDirection = transform.forward * moveSpeed;
                 rb.AddForce(new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z) * moveSpeed * Time.fixedDeltaTime, ForceMode.Force);
-                //rb.velocity = new Vector3(
-                //    moveDirection.x,
-                //    rb.velocity.y,
-                //    moveDirection.z
-                //);
             }
 
         }
@@ -124,6 +135,7 @@ public class Boat : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //transform.position.y < 2f && transform.position.y > 0f
         if (((1 << other.gameObject.layer) & waterLayer) != 0)
         {
             inWater = true;
