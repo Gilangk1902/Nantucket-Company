@@ -1,46 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class Ship : MonoBehaviour
+public class Whale : MonoBehaviour
 {
     [Header("Required Attributes")]
     [SerializeField] private Rigidbody rb;
 
     [Header("Movement Stats")]
     private Vector3 targetPosition;
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotationSpeed;
     [SerializeField] private float decelerationRate;
+    [SerializeField] private float whaleRestTime;
 
     [Header("Water Physics")]
     private float fluidDensity = 1000;
-    [SerializeField] private float shipVolume;
     private float gravity = 9.8f;
+    [SerializeField] private float whaleVolume;
 
     [Header("States")]
-    private bool isMoving;
-    private bool inWater;
-
-    public void Move(Vector3 destination)
-    {
-        targetPosition = destination;
-        isMoving = true;
-    }
+    [SerializeField] private bool isMoving;
+    [SerializeField] private bool inWater;
 
     private float CountBuoyancy()
     {
 
         float depth = 0f - transform.position.y;
-        return fluidDensity * shipVolume * gravity * depth;
+        return fluidDensity * whaleVolume * gravity * depth;
     }
 
     private void FixedUpdate()
     {
         float buoyancy = CountBuoyancy();
-
         if (!isMoving)
         {
             //rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, decelerationRate * Time.fixedDeltaTime);
@@ -98,15 +90,11 @@ public class Ship : MonoBehaviour
         }
     }
 
-    public bool HasReachedDestination()
-    {
-        return false;
-    }
-
     [SerializeField] private LayerMask waterLayer;
 
     private void OnTriggerEnter(Collider other)
     {
+        //transform.position.y < 2f && transform.position.y > 0f
         if (((1 << other.gameObject.layer) & waterLayer) != 0)
         {
             inWater = true;
@@ -120,5 +108,21 @@ public class Ship : MonoBehaviour
             inWater = false;
         }
 
+    }
+
+    public void Move(Vector3 destination)
+    {
+        targetPosition = destination;
+        isMoving = true;
+    }
+
+    public bool GetIsWhaleMoving()
+    {
+        return this.isMoving;
+    }
+
+    public float GetWhaleRestTime()
+    {
+        return this.whaleRestTime;
     }
 }
