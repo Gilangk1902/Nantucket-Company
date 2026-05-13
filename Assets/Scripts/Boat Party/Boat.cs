@@ -51,7 +51,6 @@ public class Boat : MonoBehaviour
     private void FixedUpdate()
     {
         float buoyancy = CountBuoyancy();
-        Debug.Log(buoyancy);
         if (!isMoving)
         {
             //rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, decelerationRate * Time.fixedDeltaTime);
