@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MotherShip : MonoBehaviour
+public class ShipController : MonoBehaviour
 {
     [SerializeField] bool isEnabled;
     [SerializeField] private PlayerController controller;

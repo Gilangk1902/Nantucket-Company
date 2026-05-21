@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7020176806078571398}
   - component: {fileID: 8352890525759977568}
   - component: {fileID: -2069803181419874766}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sperm Whale
-  m_TagString: Untagged
+  m_TagString: Whale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &7020176806078571398
 MonoBehaviour:
@@ -122,9 +122,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6463757791968922696}
   - component: {fileID: 3246769493808852742}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpermWhaleCollider
-  m_TagString: Untagged
+  m_TagString: Whale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,6 +217,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9e5d514cf208379409252602b51eab72, type: 3}
       propertyPath: m_Name
       value: SpermWhale
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+      propertyPath: m_TagString
+      value: Whale
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

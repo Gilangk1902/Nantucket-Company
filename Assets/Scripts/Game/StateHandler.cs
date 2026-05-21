@@ -17,8 +17,8 @@ public class StateHandler : MonoBehaviour
 
 public enum GameState
 {
-    Menu,
+    UI,
     Ship,
     Lower,
-    Battle
+    Battle,
 }
