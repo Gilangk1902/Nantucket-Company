@@ -24,6 +24,10 @@ public class Ship : MonoBehaviour
     private bool isMoving;
     private bool inWater;
 
+    [Header("Other Attributes")]
+    [SerializeField] private List<Vector3> boatDocksLocation;
+    [SerializeField] private LayerMask waterLayer;
+
     public void Move(Vector3 destination)
     {
         targetPosition = destination;
@@ -71,7 +75,7 @@ public class Ship : MonoBehaviour
             direction.y = 0f;
 
             // Stop if close enough
-            if (direction.magnitude < 2f) //TODO: adjust value
+            if (direction.magnitude < 10f) //TODO: adjust value
             {
                 rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, decelerationRate * Time.fixedDeltaTime);
                 //rb.velocity = Vector3.zero;
@@ -98,12 +102,12 @@ public class Ship : MonoBehaviour
         }
     }
 
-    public bool HasReachedDestination()
+    public Vector3 GetBoatDockLocation(int index)
     {
-        return false;
+        return boatDocksLocation[index];
     }
 
-    [SerializeField] private LayerMask waterLayer;
+    public bool HasReachedDestination(){ return false; }
 
     private void OnTriggerEnter(Collider other)
     {

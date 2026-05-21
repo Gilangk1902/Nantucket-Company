@@ -19,7 +19,6 @@ public class BoatPartyMovement : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && controller.getIsEnabled())
         {
             Vector3 pos = GetMouseWorldPosition();
-            Debug.Log(pos);
             Move(pos);
         }
         HideDestinationHighlight();
@@ -43,8 +42,7 @@ public class BoatPartyMovement : MonoBehaviour
         controller.GetBoatPartyManagement().ManageFormation(destination);
 
         //partyManagement.getPartyLeader().Move(partyManagement.getFormationSpot(1));
-        controller.GetBoatPartyManagement().getPartyLeader().Move(destination);
-        Debug.Log("Moving party leader" + controller.GetBoatPartyManagement().getPartyLeader().getCharacterName() + "to" + destination.ToString());
+        controller.GetBoatPartyManagement().getPartyLeader().SetDestination(destination);
 
         int index = 2;
         foreach (Boat _character in controller.GetBoatPartyManagement().getSelectedPartyMember())
@@ -52,8 +50,7 @@ public class BoatPartyMovement : MonoBehaviour
             if(_character != controller.GetBoatPartyManagement().getPartyLeader())
             {
                 //_character.Move(partyManagement.getFormationSpot(index));
-                _character.Move(GetRandomizedDestination(destination));
-                Debug.Log("Moving" + _character.getId() + "to its destination");
+                _character.SetDestination(GetRandomizedDestination(destination));
                 index++;
             }
         }

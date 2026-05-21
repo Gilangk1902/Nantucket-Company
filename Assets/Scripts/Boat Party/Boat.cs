@@ -11,6 +11,7 @@ public class Boat : MonoBehaviour
     private string id;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private string characterName;
+    [SerializeField] private BoatParty party;
 
     [Header("Movement Stats")]
     private Vector3 targetPosition;
@@ -27,28 +28,17 @@ public class Boat : MonoBehaviour
     [SerializeField] private bool isMoving;
     [SerializeField] private bool inWater;
 
-
     private void Awake()
     {
         id = GenerateID();
     }
-    public string getId()
-    {
-        return this.id;
-    }
-
-    public string getCharacterName()
-    {
-        return this.characterName;
-    }
-    private float CountBuoyancy()
-    {
-        
-        float depth = 0f - transform.position.y;
-        return fluidDensity * boatVolume * gravity * depth;
-    }
 
     private void FixedUpdate()
+    {
+        Movement();
+    }
+
+    private void Movement()
     {
         float buoyancy = CountBuoyancy();
         if (!isMoving)
@@ -59,10 +49,7 @@ public class Boat : MonoBehaviour
                 rb.AddForce(Vector3.up * buoyancy * Time.fixedDeltaTime, ForceMode.Force);
                 rb.drag = 3;
             }
-            else
-            {
-                rb.drag = 0;
-            }
+            else { rb.drag = 0; }
         }
         else
         {
@@ -71,10 +58,7 @@ public class Boat : MonoBehaviour
                 rb.AddForce(Vector3.up * buoyancy * Time.fixedDeltaTime, ForceMode.Force);
                 rb.drag = 3;
             }
-            else
-            {
-                rb.drag = 0;
-            }
+            else { rb.drag = 0; }
 
             // Direction to target
             Vector3 direction = (targetPosition - transform.position);
@@ -86,7 +70,7 @@ public class Boat : MonoBehaviour
                 rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, decelerationRate * Time.fixedDeltaTime);
                 //rb.velocity = Vector3.zero;
                 isMoving = false;
-                
+
             }
             else
             {
@@ -107,22 +91,18 @@ public class Boat : MonoBehaviour
 
         }
     }
-
-    public static string GenerateID()
-    {
-        System.Text.StringBuilder sb = new System.Text.StringBuilder("C");
-        for (int i = 0; i < 5; i++)
-        {
-            int digit = Random.Range(0, 10);
-            sb.Append(digit);
-        }
-        return sb.ToString();
-    }
-
-    public void Move(Vector3 destination)
+    
+    public void SetDestination(Vector3 destination)
     {
         targetPosition = destination;
         isMoving = true;
+    }
+    
+    private float CountBuoyancy()
+    {
+        
+        float depth = 0f - transform.position.y;
+        return fluidDensity * boatVolume * gravity * depth;
     }
 
     public bool HasReachedDestination()
@@ -149,4 +129,18 @@ public class Boat : MonoBehaviour
         }
     
     }
+    public string getId(){ return this.id; }
+    public string getCharacterName(){ return this.characterName; }
+    public static string GenerateID()
+    {
+        System.Text.StringBuilder sb = new System.Text.StringBuilder("C");
+        for (int i = 0; i < 5; i++)
+        {
+            int digit = Random.Range(0, 10);
+            sb.Append(digit);
+        }
+        return sb.ToString();
+    }
+
+    public GameObject GetGameObject() { return this.gameObject; }
 }
