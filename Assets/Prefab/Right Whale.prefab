@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8073671507656579595
+--- !u!1 &6176863044836258180
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,90 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4242220098826887330}
-  - component: {fileID: 904812257940632759}
-  - component: {fileID: 7020176806078571398}
-  - component: {fileID: 8352890525759977568}
-  - component: {fileID: -2069803181419874766}
+  - component: {fileID: 8237142449562896937}
+  - component: {fileID: 8526844340264804191}
+  - component: {fileID: 7421936317257064586}
+  - component: {fileID: 4241257050278591155}
+  - component: {fileID: 973043764662876908}
   m_Layer: 0
-  m_Name: Sperm Whale
+  m_Name: Right Whale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4242220098826887330
+--- !u!4 &8237142449562896937
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073671507656579595}
+  m_GameObject: {fileID: 6176863044836258180}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.01, z: 0}
+  m_LocalPosition: {x: -28.62, y: 23.55, z: 9.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6463757791968922696}
+  - {fileID: 5569059538262815163}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &904812257940632759
+--- !u!114 &8526844340264804191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176863044836258180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af74e84fdf99ba4cb378f89ee7d8b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 973043764662876908}
+  moveSpeed: 4500
+  rotationSpeed: 3
+  decelerationRate: 5
+  whaleRestTime: 3
+  whaleVolume: 1286
+  isMoving: 0
+  inWater: 0
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 16
+--- !u!114 &7421936317257064586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176863044836258180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbb953029d142447bbbc0e0244fd2b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whale: {fileID: 8526844340264804191}
+--- !u!114 &4241257050278591155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176863044836258180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336d938d9b485544cb11a542e93f0b27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 7421936317257064586}
+--- !u!54 &973043764662876908
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073671507656579595}
+  m_GameObject: {fileID: 6176863044836258180}
   serializedVersion: 4
   m_Mass: 20000
   m_Drag: 0
@@ -61,58 +110,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &7020176806078571398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073671507656579595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7af74e84fdf99ba4cb378f89ee7d8b91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 904812257940632759}
-  moveSpeed: 4500
-  rotationSpeed: 5
-  decelerationRate: 5
-  whaleRestTime: 3
-  whaleVolume: 1286
-  isMoving: 0
-  inWater: 0
-  waterLayer:
-    serializedVersion: 2
-    m_Bits: 16
---- !u!114 &8352890525759977568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073671507656579595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddbb953029d142447bbbc0e0244fd2b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whale: {fileID: 7020176806078571398}
---- !u!114 &-2069803181419874766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073671507656579595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 336d938d9b485544cb11a542e93f0b27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 8352890525759977568}
---- !u!1 &8231682552666510841
+--- !u!1 &7123533183828794682
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,38 +120,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6463757791968922696}
-  - component: {fileID: 3246769493808852742}
+  - component: {fileID: 5569059538262815163}
+  - component: {fileID: 7763522620361140656}
   m_Layer: 0
-  m_Name: SpermWhaleCollider
+  m_Name: Right Whale Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6463757791968922696
+--- !u!4 &5569059538262815163
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8231682552666510841}
+  m_GameObject: {fileID: 7123533183828794682}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7149572558463408000}
-  m_Father: {fileID: 4242220098826887330}
+  - {fileID: 1368115429304999214}
+  m_Father: {fileID: 8237142449562896937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3246769493808852742
+--- !u!65 &7763522620361140656
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8231682552666510841}
+  m_GameObject: {fileID: 7123533183828794682}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -164,67 +164,67 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.6, z: 7.83}
-  m_Center: {x: 0, y: 0, z: 0.68}
---- !u!1001 &7256102888146661483
+  m_Size: {x: 1, y: 2.09, z: 8.26}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &1546490345327033029
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6463757791968922696}
+    m_TransformParent: {fileID: 5569059538262815163}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+    - target: {fileID: -8679921383154817045, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+    - target: {fileID: -8679921383154817045, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+    - target: {fileID: -8679921383154817045, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+    - target: {fileID: -8679921383154817045, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+    - target: {fileID: -8679921383154817045, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+    - target: {fileID: -8679921383154817045, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7072302
+      value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+    - target: {fileID: -8679921383154817045, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7069834
+      value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+    - target: {fileID: -8679921383154817045, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
+      value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+    - target: {fileID: -8679921383154817045, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+    - target: {fileID: -8679921383154817045, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 9e5d514cf208379409252602b51eab72, type: 3}
+    - target: {fileID: 919132149155446097, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
       propertyPath: m_Name
-      value: SpermWhale
+      value: RightWhale
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9e5d514cf208379409252602b51eab72, type: 3}
---- !u!4 &7149572558463408000 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
+--- !u!4 &1368115429304999214 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9e5d514cf208379409252602b51eab72, type: 3}
-  m_PrefabInstance: {fileID: 7256102888146661483}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c7083d8f67034db4c8b6bceaaa62a4c1, type: 3}
+  m_PrefabInstance: {fileID: 1546490345327033029}
   m_PrefabAsset: {fileID: 0}

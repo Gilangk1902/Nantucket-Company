@@ -13,7 +13,6 @@ public class ShipMovement : MonoBehaviour
         if (Input.GetMouseButton(0) && controller.getIsEnabled()) 
         {
             Vector3 pos = GetMouseWorldPosition();
-            Debug.Log(pos);
             Move(pos);
         }
         HideDestinationHighlight();
@@ -42,10 +41,7 @@ public class ShipMovement : MonoBehaviour
 
     private void HideDestinationHighlight()
     {
-        if (controller.GetShip().HasReachedDestination())
-        {
-            destinationHighlight.SetActive(false);
-        }
+        if (controller.GetShip().HasReachedDestination()){ destinationHighlight.SetActive(false); }
     }
 
 }

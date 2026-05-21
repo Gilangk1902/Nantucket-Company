@@ -50,6 +50,20 @@ public class CameraController : MonoBehaviour
 
         float scroll = Input.GetAxis("Mouse ScrollWheel"); // scroll up/down
         if (Mathf.Abs(scroll) > 0.01f)
-            _camera.transform.position += Vector3.up * scroll * ascendSpeed;
+        {
+            if (scroll > 0f)
+            {
+                if (_camera.transform.position.y > 5f)
+                {
+                    _camera.transform.position += Vector3.down * scroll * ascendSpeed;
+                    _camera.transform.localPosition += Vector3.forward * scroll * ascendSpeed / 2f;
+                }
+            }
+            else if (scroll < 0f)
+            {
+                _camera.transform.position += Vector3.down * scroll * ascendSpeed;
+                _camera.transform.localPosition += Vector3.forward * scroll * ascendSpeed / 2f;
+            }
+        }
     }
 }
