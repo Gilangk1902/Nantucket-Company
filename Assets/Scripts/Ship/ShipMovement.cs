@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour
 {
-    [SerializeField] private MotherShip controller;
+    [SerializeField] private ShipController controller;
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject destinationHighlight;
 

@@ -10,16 +10,15 @@ public class BoatParty : MonoBehaviour
     
     private void Update()
     {
-        if(!GetController().getIsEnabled()) { 
-            for(int i  = 0; i< party.Count; i++) { 
-                if(party[i] != null) party[i].GetGameObject().SetActive(false);
-                if(party[i] != null) party[i].GetGameObject().transform.localPosition = GetBoatDocks(i);
-            } 
-        }
-        else { 
-            foreach (Boat boat in party) {
-                if (boat != null) boat.GetGameObject().SetActive(true); 
-            } 
+        
+    }
+
+    public void SetBoatVisibility(bool value)
+    {
+        for (int i = 0; i < party.Count; i++)
+        {
+            if (party[i] != null) party[i].GetGameObject().SetActive(value);
+            if (party[i] != null) party[i].GetGameObject().transform.localPosition = GetBoatDocks(i);
         }
     }
 
