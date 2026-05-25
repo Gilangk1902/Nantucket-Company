@@ -8,6 +8,7 @@ public class WhaleInteractionUI_Boat : MonoBehaviour
     [SerializeField] private UIController uiController;
     [SerializeField] private GameObject whaleInteractionPanel;
     [SerializeField] private Button closeButton;
+
     private void Start()
     {
         Button _closeButton = closeButton.GetComponent<Button>();

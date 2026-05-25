@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
     public void SetPlayerControlMode(PlayerControlMode mode) { this.mode = mode; }
     public Game GetGame() { return game;}
     public ShipController GetShipControrller() { return shipController;}
+    public BoatController GetBoatController() { return boatPartyController; }
 }
 
 public enum PlayerControlMode

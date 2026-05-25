@@ -79,7 +79,7 @@ MonoBehaviour:
   moveSpeed: 4500
   rotationSpeed: 5
   decelerationRate: 5
-  whaleRestTime: 3
+  whaleRestTime: 10
   whaleVolume: 1286
   isMoving: 0
   inWater: 0

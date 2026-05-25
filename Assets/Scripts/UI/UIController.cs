@@ -13,6 +13,7 @@ public class UIController : MonoBehaviour
     
     [Header("Ship Mode Interaction")]
     [SerializeField] private ShipInteractionUI_Ship shipInteractionUI_ship;
+    [SerializeField] private ShipInteractionUI_boat shipInteractionUI_boat;
     //[SerializeField] private WhaleInteractionUI whaleInteractionUI_ship;
     public void ShowWhaleInteractionPanel(PlayerControlMode mode, Vector3 mousePosition)
     {
@@ -47,7 +48,17 @@ public class UIController : MonoBehaviour
         }
         else if(mode == PlayerControlMode.Boat)
         {
+            if (playerController.GetBoatController().BoatNearShip())
+            {
+                playerController.GetGame().GetGameController().GetStateHandler().SetGameState(GameState.UI);
+                playerController.SetPlayerControlMode(PlayerControlMode.UI);
 
+                shipInteractionUI_boat.GetShipInteractionPanel().SetActive(true);
+                Vector3 offset = new Vector3(50f, -50f, 0);
+                shipInteractionUI_boat.GetShipInteractionPanel().transform.position = mousePosition + offset;
+
+                whaleInteractionUI_boat.GetWhaleInteractionPanel().SetActive(false);
+            }
         }
     }
 
@@ -56,7 +67,19 @@ public class UIController : MonoBehaviour
         playerController.GetGame().GetGameController().GetStateHandler().SetGameState(state);
         playerController.SetPlayerControlMode(mode);
 
+        if(mode == PlayerControlMode.Ship)
+        {
+            playerController.GetBoatController().GetBoatParty().SetBoatVisibility(false);
+        }
+        else
+        {
+            playerController.GetBoatController().GetBoatParty().SetBoatVisibility(true);
+        }
+
         whaleInteractionUI_boat.GetWhaleInteractionPanel().SetActive(false);
         shipInteractionUI_ship.GetShipInteractionPanel().SetActive(false);
+        shipInteractionUI_boat.GetShipInteractionPanel().SetActive(false);
     }
+
+    public PlayerController GetPlayerController() { return playerController; }
 }
